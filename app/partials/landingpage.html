@@ -1,0 +1,149 @@
+<head>
+  <title>Team Finder</title>
+  <link rel="stylesheet" type="text/css" href="landing.css"/>
+  </head>
+  <body>
+  <div id="header">
+  </div>
+  </body>
+
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="jumbotron">
+  <h1>Team Finder</h1>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Find a Team</a></p>
+</div>
+
+<div class="container">
+<h3>Choose your Sport</h3>
+<div class="row">
+</div>
+
+<div class="col-md-3">
+</div>
+<div class="col-md-3">
+</div><div class="col-md-3">
+</div><div class="col-md-3">
+</div>
+
+<!-- Scotch -->
+
+<div class="container" ng-app="meansApp" ng-controller="LandingCtrl">
+  
+  <div class="alert alert-info">
+    <p>Sort Type: {{ ctrl.sortType }}</p>
+    <p>Sort Reverse: {{ ctrl.sortReverse }}</p>
+    <p>Search Query: {{ ctrl.searchSports }}</p>
+  </div>
+  
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control" placeholder="Search Sports" ng-model="ctrl.searchSports">
+      </div>      
+    </div>
+  </form>
+  
+  <table class="table table-bordered table-striped">
+    
+    <thead>
+      <tr>
+        <td>
+          <a href="#" ng-click="sortType = 'location'; sortReverse = !sortReverse">
+            Team Location
+            <span ng-show="sortType == 'location' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'location' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'type'; sortReverse = !sortReverse">
+          Team Type 
+            <span ng-show="sortType == 'type' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'type' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'sport'; sortReverse = !sortReverse">
+          Type of Sport 
+            <span ng-show="sortType == 'sport' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'sport' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr ng-repeat="league in ctrl.sports | orderBy:sortType:sortReverse | filter:ctrl.searchSports" ng-click="ctrl.print(league)">
+        <td>{{ league.location }}</td>
+        <td>{{ league.type }}</td>
+        <td>{{ league.sport }}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+  
+  <p class="text-center text-muted">
+    <a href="#" target="_blank">Find The Best Local Sport's Team</a>
+  </p>
+  
+  <p class="text-center">
+    by <a href="http://scotch.io" target="_blank">TeamFinder.io</a>
+  </p>
+  
+</div>

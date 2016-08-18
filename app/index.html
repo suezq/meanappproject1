@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- App Styles -->
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!-- <script src="/path/to/masonry.pkgd.min.js"></script> -->
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="/css/admin.css">
+	<link rel="stylesheet" type="text/css" href="/css/landing.css">
+	<link rel="stylesheet" type="text/css" href="/css/teamdir.css">
+	<link rel="stylesheet" type="text/css" href="/css/teamgender.css">
+	<link rel="stylesheet" type="text/css" href="/css/teamstat.css">
+
+
+	<title>Team Finder</title>
+
+	<!-- Angular -->
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.12/angular-animate.min.js"></script>
+
+
+	<!-- App Controllers -->
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="services/sportsrv.js"></script>
+	<script type="text/javascript" src="controllers/admin.ctrl.js"></script>
+	<script type="text/javascript" src="controllers/landing.ctrl.js"></script>
+	<script type="text/javascript" src="controllers/teamdir.ctrl.js"></script>
+	<script type="text/javascript" src="controllers/teamstat.ctrl.js"></script>
+	<script type="text/javascript" src="controllers/teamgender.ctrl.js"></script>
+	
+
+	
+</head>
+<body ng-app="meanApp" class="ng-scope">
+<h1>TEST</h1>
+	<div ui-view class="wrapper"></div>
+
+</body>
+</html>
